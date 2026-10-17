@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 390" role="img" aria-label="Функции — от прямой к параболе">
+<defs>
+  <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#f8fafb"/><stop offset="1" stop-color="#e7eef6"/></linearGradient>
+  <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2064df"/><stop offset="1" stop-color="#154396"/></linearGradient>
+  <clipPath id="frame"><rect width="1280" height="390" rx="25"/></clipPath>
+  <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M 54 0 L 0 0 0 54" fill="none" stroke="#cbd7e1" stroke-width="1"/></pattern>
+</defs>
+<g clip-path="url(#frame)">
+ <rect width="1280" height="390" fill="url(#paper)"/>
+ <rect x="577" y="0" width="703" height="390" fill="url(#grid)" opacity=".7"/>
+ <path d="M 622 295 H 1248" stroke="#233a50" stroke-width="2"/><path d="M 942 15 V 368" stroke="#233a50" stroke-width="2"/>
+ <path d="M 665 338 L 1220 27" stroke="url(#blue)" stroke-width="8" fill="none" stroke-linecap="round"/>
+ <path d="M 755 66 Q 938 507 1148 66" stroke="#c65530" stroke-width="7" fill="none" stroke-linecap="round"/>
+ <circle cx="942" cy="183" r="8" fill="#c65530" stroke="#f8fafb" stroke-width="4"/>
+ <circle cx="1099" cy="95" r="7" fill="#205bd5" stroke="#f8fafb" stroke-width="4"/>
+ <rect width="600" height="390" fill="#f6f7f5" opacity=".98"/>
+ <path d="M 53 69 H 117" stroke="#b85831" stroke-width="3"/>
+ <text x="53" y="54" font-size="18" fill="#a75b3a" font-family="Arial,Helvetica,sans-serif" letter-spacing="5">ИНТЕРАКТИВНЫЙ УРОК · 10 КЛАСС</text>
+ <text x="50" y="165" font-size="84" fill="#192b40" font-family="Georgia,Times New Roman,serif">Функции</text>
+ <text x="56" y="221" font-size="30" fill="#456276" font-family="Georgia,Times New Roman,serif" font-style="italic">От прямой к параболе</text>
+ <path d="M 55 250 H 513" stroke="#d1dae1" stroke-width="1.5"/>
+ <text x="55" y="301" font-size="21" fill="#37495b" font-family="Arial,Helvetica,sans-serif">15 слайдов</text>
+ <text x="224" y="301" font-size="21" fill="#37495b" font-family="Arial,Helvetica,sans-serif">45 минут</text>
+ <text x="381" y="301" font-size="21" fill="#37495b" font-family="Arial,Helvetica,sans-serif">SVG + JS</text>
+ <text x="55" y="345" font-size="16" fill="#708397" font-family="Arial,Helvetica,sans-serif" letter-spacing="1">FULLSCREEN · OPEN STAGE · LIVE CONTROLS</text>
+</g></svg>

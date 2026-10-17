@@ -1,0 +1,137 @@
+[
+  {
+    "id": "atlas",
+    "title": "Функции. От прямой к параболе",
+    "group": "Карта урока",
+    "minutes": 2,
+    "src": "Обзор разделов учебника",
+    "body": "<div class=\"herohead\"><div><h1>Один аргумент.<br>Целый мир <span class=\"blue\">функций.</span></h1></div><p class=\"lead\">Выбери график — открой его устройство, свойства и правила.</p></div><div class=\"badges\"><span>10 класс</span><span>15 слайдов</span><span>45 минут</span><span>Графики можно исследовать</span></div><div class=\"atlas\" id=\"atlas-grid\"></div><p class=\"small\">Маршрут урока: язык функций → прямая → парабола → другие виды → практика. К этой карте можно вернуться кнопкой «Карта».</p>",
+    "notes": "0:00–2:00. Спросите: что общего у шести рисунков? Покажите переход по параболе и вернитесь на карту. Для последовательного урока нажмите «Далее». Объясните, что графики — разные способы видеть зависимость y от x."
+  },
+  {
+    "id": "language",
+    "title": "Что делает функцию функцией?",
+    "group": "Общий язык",
+    "minutes": 2,
+    "src": "с. 88–91, 93",
+    "body": "<h2>Каждому x — <span class=\"blue\">ровно один y.</span></h2><div class=\"layout\"><div class=\"textcol\"><div class=\"formula\">f: A → B, y = f(x)</div><p><b>x</b> — аргумент; <b>y</b> — значение.</p><p><b>D(f) = A</b> — допустимые x.<br><b>E(f) = f(A)</b> — получаемые y.</p><div class=\"rule\">Важно: E(f) ⊆ B. Не путай допустимые и получаемые значения.</div><label class=\"slider\"><span>x</span><input type=\"range\" data-param=\"point\" min=\"-3\" max=\"3\" step=\"0.25\" value=\"1\" aria-label=\"Коэффициент x\"><output id=\"out-point\">1</output></label><div id=\"point-readout\" class=\"result\"></div><div class=\"controls\"><button  data-action=\"relation:parabola\">Парабола</button><button  data-action=\"relation:circle\">Окружность</button></div></div><div class=\"plot\"><div id=\"plot-language\"></div><p class=\"plot-caption\">Двигай вертикальную линию: для функции у каждого допустимого x только одно пересечение.</p></div></div>",
+    "notes": "2:00–4:00. Проведите вертикальную линию при x=1. На параболе одно значение, на окружности два. Обязательно различайте B и E(f). Способы задания, образ/прообраз, равенство функций и операции доступны в справочнике."
+  },
+  {
+    "id": "properties",
+    "title": "Как читать любой график",
+    "group": "Общий язык",
+    "minutes": 3,
+    "src": "с. 92–98",
+    "body": "<h2>У графика есть <span class=\"blue\">паспорт.</span></h2><p class=\"lead\">Выбери свойство. График покажет, что именно нужно искать.</p><div class=\"layout\"><div class=\"textcol\"><div class=\"property-grid\" id=\"property-buttons\"></div><div class=\"result\" id=\"property-text\" aria-live=\"polite\"></div><p class=\"small\">Исследуем f(x) = x² − 4. Одно свойство не заменяет остальные.</p></div><div class=\"plot\"><div id=\"plot-properties\"></div><p class=\"plot-caption\">Координатные оси x и y; одна клетка соответствует одной единице.</p></div></div>",
+    "notes": "4:00–7:00. Обязательные клики: D и E, нули/знаки, монотонность, экстремум. Затем коротко чётность. Периодичность и обратимость оставьте как вопросы: повторяется ли парабола? можно ли по y однозначно восстановить x? Все строгие определения — в справочнике."
+  },
+  {
+    "id": "linear-lab",
+    "title": "Прямая: смысл a и b",
+    "group": "Первая степень · 1/3",
+    "minutes": 2,
+    "src": "с. 102–103",
+    "body": "<h2>Наклон задаёт a.<br>Высоту на оси y — b.</h2><div class=\"layout\"><div class=\"textcol\"><div class=\"formula blue\" id=\"linear-formula\"></div><label class=\"slider\"><span>a</span><input type=\"range\" data-param=\"la\" min=\"-3\" max=\"3\" step=\"0.5\" value=\"1\" aria-label=\"Коэффициент a\"><output id=\"out-la\">1</output></label><label class=\"slider\"><span>b</span><input type=\"range\" data-param=\"lb\" min=\"-4\" max=\"4\" step=\"0.5\" value=\"1\" aria-label=\"Коэффициент b\"><output id=\"out-lb\">1</output></label><div class=\"result\" id=\"linear-readout\"></div><p>a = Δy / Δx. Если x увеличивается на 1, значение y меняется на a.</p><div class=\"controls\"><button  data-action=\"linear-origin\">Прямая пропорциональность: b = 0</button><button  data-action=\"reset:linear\">Сброс</button></div></div><div class=\"plot\"><div id=\"plot-linear\"></div><p class=\"plot-caption\">Координатные оси x и y; одна клетка соответствует одной единице.</p></div></div>",
+    "notes": "7:00–9:00. Попросите предсказать график до перемещения a. Проверьте a>0, a<0, a=0. Последний случай — постоянная функция, не функция I степени. Затем установите b=0: прямая проходит через начало координат."
+  },
+  {
+    "id": "linear-properties",
+    "title": "Все свойства прямой",
+    "group": "Первая степень · 2/3",
+    "minutes": 3,
+    "src": "с. 93–98, 102–103",
+    "body": "<h2>Один нуль. Один наклон.<br><span class=\"blue\">Никаких поворотов.</span></h2><div class=\"layout\"><div class=\"textcol\"><div class=\"controls\"><button  data-action=\"linecase:up\">a > 0: 2x − 2</button><button  data-action=\"linecase:down\">a < 0: −2x + 2</button></div><div id=\"line-properties\"></div><div class=\"rule\">При a ≠ 0: D(f) = E(f) = ℝ. Нет максимума и минимума; функция не ограничена ни сверху, ни снизу.</div><p class=\"small\">Непериодическая. Обратима на ℝ. Нечётная только при b = 0; при b ≠ 0 — ни чётная, ни нечётная.</p></div><div class=\"plot\"><div id=\"plot-lineprops\"></div><p class=\"plot-caption\">Цветные части графика показывают знак: синий — положительный, оранжевый — отрицательный.</p></div></div>",
+    "notes": "9:00–12:00. Для двух функций нуль одинаков: x=1. Но знак слева и справа меняется местами. Подчеркните: нуль — число x, точка пересечения — (x;0). Обратная функция f⁻¹(x)=(x−b)/a, не 1/f(x)."
+  },
+  {
+    "id": "linear-solve",
+    "title": "Уравнение, неравенство, пересечение",
+    "group": "Первая степень · 3/3",
+    "minutes": 3,
+    "src": "с. 103–109",
+    "body": "<h2>Решение — это <span class=\"blue\">место на графике.</span></h2><div class=\"layout\"><div class=\"textcol\"><div class=\"controls\"><button  data-action=\"linear-task:zero\">Нуль</button><button  data-action=\"linear-task:sign\">Знак</button><button  data-action=\"linear-task:cross\">Две прямые</button></div><div id=\"linear-task-text\"></div><div class=\"rule\">При делении неравенства на отрицательное число знак неравенства меняется.</div><p class=\"small\">Система = «и» = пересечение решений.<br>Совокупность = «или» = объединение решений.</p></div><div class=\"plot\"><div id=\"plot-linearsolve\"></div><p class=\"plot-caption\">Координатные оси x и y; одна клетка соответствует одной единице.</p></div></div>",
+    "notes": "12:00–15:00. Решите 2x−2=0 и −2x+2≥0. Спросите, почему ответ x≤1. Затем решите 2x−2=−x+4: x=2, y=2. Для двух прямых также возможны параллельность и совпадение; эти случаи указаны в справочнике."
+  },
+  {
+    "id": "quadratic-lab",
+    "title": "Парабола: смысл коэффициентов",
+    "group": "Вторая степень · 1/6",
+    "minutes": 2,
+    "src": "с. 113",
+    "body": "<h2>Добавляем x².<br>Прямая становится <span class=\"accent\">параболой.</span></h2><div class=\"layout\"><div class=\"textcol\"><div class=\"formula accent\" id=\"quadratic-formula\"></div><label class=\"slider\"><span>a</span><input type=\"range\" data-param=\"qa\" min=\"-2\" max=\"2\" step=\"0.5\" value=\"1\" aria-label=\"Коэффициент a\"><output id=\"out-qa\">1</output></label><label class=\"slider\"><span>b</span><input type=\"range\" data-param=\"qb\" min=\"-4\" max=\"4\" step=\"0.5\" value=\"-2\" aria-label=\"Коэффициент b\"><output id=\"out-qb\">-2</output></label><label class=\"slider\"><span>c</span><input type=\"range\" data-param=\"qc\" min=\"-3\" max=\"3\" step=\"0.5\" value=\"-1\" aria-label=\"Коэффициент c\"><output id=\"out-qc\">-1</output></label><div class=\"result\" id=\"quadratic-readout\"></div><div class=\"controls\"><button  data-action=\"reset:quadratic\">Сброс</button><button  data-action=\"toggle-copy\">Только график</button></div></div><div class=\"plot\"><div id=\"plot-quadratic\"></div><p class=\"plot-caption\">Изменение b обычно сдвигает и ось симметрии, и высоту вершины. Это не простой горизонтальный перенос.</p></div></div>",
+    "notes": "15:00–17:00. Покажите a>0, a<0 и a=0. В последнем случае функция уже не II степени. При одинаковом расстоянии от вершины большее |a| даёт большее отклонение по вертикали. c — ордината пересечения с Oy, а не обязательно высота вершины."
+  },
+  {
+    "id": "vertex",
+    "title": "Вершина и преобразования",
+    "group": "Вторая степень · 2/6",
+    "minutes": 3,
+    "src": "с. 94, 96, 113; выделение квадрата",
+    "body": "<h2>Вся парабола — вокруг <span class=\"accent\">одной точки.</span></h2><div class=\"layout\"><div class=\"textcol\"><div class=\"formula\">f(x) = a(x − h)² + k</div><p><b>Вершина V(h; k).</b> Ось симметрии: x = h.</p><div class=\"rule orange\"><span class=\"math\">h = −b/(2a), k = f(h) = −Δ/(4a)</span><br>Δ = b² − 4ac, a ≠ 0.</div><label class=\"slider\"><span>h</span><input type=\"range\" data-param=\"vh\" min=\"-3\" max=\"3\" step=\"0.5\" value=\"1\" aria-label=\"Коэффициент h\"><output id=\"out-vh\">1</output></label><label class=\"slider\"><span>k</span><input type=\"range\" data-param=\"vk\" min=\"-3\" max=\"3\" step=\"0.5\" value=\"-2\" aria-label=\"Коэффициент k\"><output id=\"out-vk\">-2</output></label><div id=\"vertex-readout\" class=\"result\"></div><div class=\"controls\"><button  data-action=\"vertex-a:1\">a = 1</button><button  data-action=\"vertex-a:-1\">a = −1</button><button  data-action=\"reset:vertex\">Сброс</button></div></div><div class=\"plot\"><div id=\"plot-vertex\"></div><p class=\"plot-caption\">Серая кривая — y = x². Цветная — преобразованная парабола.</p></div></div>",
+    "notes": "17:00–20:00. Начните с x², затем h=1 и k=−2. Спросите, почему x−1 означает перенос вправо. Покажите пары точек h−1 и h+1. В справочнике — выделение полного квадрата и перевод между тремя формами записи."
+  },
+  {
+    "id": "roots",
+    "title": "Дискриминант и нули",
+    "group": "Вторая степень · 3/6",
+    "minutes": 3,
+    "src": "с. 113–114",
+    "body": "<h2>Сколько раз парабола<br>встретит <span class=\"accent\">ось x?</span></h2><div class=\"layout\"><div class=\"textcol\"><div class=\"formula\">Δ = b² − 4ac</div><div class=\"controls\"><button  data-action=\"disc:positive\">Δ > 0</button><button  data-action=\"disc:zero\">Δ = 0</button><button  data-action=\"disc:negative\">Δ < 0</button></div><div class=\"controls\"><button  data-action=\"disc-sign:1\">Ветви вверх</button><button  data-action=\"disc-sign:-1\">Ветви вниз</button></div><div id=\"disc-readout\" class=\"result\"></div><p class=\"math\">x = (−b ± √Δ) / (2a), если Δ ≥ 0.</p><p class=\"small\">Δ &gt; 0: два различных корня.<br>Δ = 0: один корень кратности 2.<br>Δ &lt; 0: действительных корней нет.</p></div><div class=\"plot\"><div id=\"plot-roots\"></div><p class=\"plot-caption\">Координатные оси x и y; одна клетка соответствует одной единице.</p></div></div>",
+    "notes": "20:00–23:00. Последовательно покажите три значения Δ для ветвей вверх, затем вниз. Всего шесть случаев из рисунка 7.3. При a<0 корень с минусом перед √Δ не обязательно меньший: для таблицы знаков всегда упорядочиваем корни r₁<r₂."
+  },
+  {
+    "id": "variation",
+    "title": "Возрастание, экстремум, значения",
+    "group": "Вторая степень · 4/6",
+    "minutes": 3,
+    "src": "с. 94, 96–98, 113",
+    "body": "<h2>До вершины — одно движение.<br>После — <span class=\"accent\">обратное.</span></h2><div class=\"layout\"><div class=\"textcol\"><div class=\"controls\"><button  data-action=\"variation:1\">a > 0: минимум</button><button  data-action=\"variation:-1\">a < 0: максимум</button></div><label class=\"slider\"><span>x</span><input type=\"range\" data-param=\"vx\" min=\"-2\" max=\"4\" step=\"0.25\" value=\"0\" aria-label=\"Коэффициент x\"><output id=\"out-vx\">0</output></label><div class=\"result\" id=\"variation-readout\"></div><div id=\"variation-properties\"></div><p class=\"small\">На всей ℝ парабола не монотонна и не обратима. На каждой отдельной ветви — строго монотонна и обратима на своё множество значений.</p></div><div class=\"plot\"><div id=\"plot-variation\"></div><p class=\"plot-caption\">Двигай точку слева направо. Вершина разделяет промежутки монотонности.</p></div></div>",
+    "notes": "23:00–26:00. Различайте точку экстремума h и значение экстремума k. Двигайте x, наблюдайте убывание и возрастание. При a>0 есть нижняя граница, но нет верхней; при a<0 наоборот. Обсудите чётность: общая парабола чётна только при b=0, хотя ось симметрии есть всегда."
+  },
+  {
+    "id": "quadratic-signs",
+    "title": "Знаки и квадратные неравенства",
+    "group": "Вторая степень · 5/6",
+    "minutes": 3,
+    "src": "с. 117–118",
+    "body": "<h2>Знак функции читается<br><span class=\"accent\">выше и ниже оси x.</span></h2><div class=\"layout\"><div class=\"textcol\"><div class=\"controls\"><button  data-action=\"sign-disc:positive\">Δ > 0</button><button  data-action=\"sign-disc:zero\">Δ = 0</button><button  data-action=\"sign-disc:negative\">Δ < 0</button></div><div class=\"controls\"><button  data-action=\"sign-a:1\">a > 0</button><button  data-action=\"sign-a:-1\">a < 0</button></div><label>Решить <select id=\"sign-op\" aria-label=\"Знак квадратного неравенства\"><option value=\">\">f(x) > 0</option><option value=\">=\">f(x) ≥ 0</option><option value=\"<\">f(x) &lt; 0</option><option value=\"<=\">f(x) ≤ 0</option></select></label><div class=\"result\" id=\"sign-result\" aria-live=\"polite\"></div><p>При двух корнях: <b>снаружи знак a, между корнями — противоположный.</b></p><p class=\"small\">При ≥ или ≤ подходящие нули включаем. При двойном корне знак через него не меняется.</p></div><div class=\"plot\"><div id=\"plot-signs\"></div><p class=\"plot-caption\">Толстый участок на оси x — множество решений. Закрашенные точки входят в ответ, пустые — нет.</p></div></div>",
+    "notes": "26:00–29:00. Основной пример x²−2x−3≤0 даёт [−1;3]. Покажите переключение на строгое неравенство. Затем Δ=0: для (x−1)²≤0 остаётся единственная точка, а при <0 решений нет. Все 24 сочетания доступны для самостоятельного повторения."
+  },
+  {
+    "id": "build",
+    "title": "Собираем исследование целиком",
+    "group": "Вторая степень · 6/6",
+    "minutes": 3,
+    "src": "с. 113–114, 117–123",
+    "body": "<h2>Пять шагов от формулы<br>до <span class=\"accent\">полного графика.</span></h2><div class=\"layout\"><div class=\"textcol\"><div class=\"formula\">f(x) = x² − 4x + 3</div><ol class=\"steps\" id=\"build-steps\"><li>D(f), коэффициенты, ветви</li><li>Вершина и ось симметрии</li><li>Нули и пересечение с Oy</li><li>Симметричные точки и график</li><li>Свойства и знак</li></ol><div id=\"build-detail\" class=\"step-detail\"></div><div class=\"controls\"><button  data-action=\"build-prev\">← Шаг</button><button class=\"primary\" data-action=\"build-next\">Следующий шаг →</button><button  data-action=\"build-reset\">Сначала</button></div></div><div class=\"plot\"><div id=\"plot-build\"></div><p class=\"plot-caption\">Координатные оси x и y; одна клетка соответствует одной единице.</p></div></div>",
+    "notes": "29:00–32:00. Открывайте по одному шагу. Корни 1 и 3 проверяются по Виету: сумма 4, произведение 3. Вершина (2;−1), Oy: (0;3). Завершите выводом об E(f), монотонности и знаках. В справочнике — Виет, обратная теорема, неполные уравнения, параметры, модуль, системы и метод интервалов как дополнительное чтение."
+  },
+  {
+    "id": "others",
+    "title": "За пределами прямой и параболы",
+    "group": "Другие функции",
+    "minutes": 3,
+    "src": "с. 90, 94–95, 128–129, 139, 147–148",
+    "body": "<h2>Один язык.<br><span class=\"blue\">Разные семейства.</span></h2><div class=\"stage-tabs\" id=\"other-tabs\"></div><div class=\"layout\"><div class=\"textcol\"><div id=\"other-description\"></div><div class=\"controls\"><button  data-action=\"other-compare\">Сравнить с x²</button></div></div><div class=\"plot\"><div id=\"plot-others\"></div><p class=\"plot-caption\">Выбери семейство: меняются и график, и его свойства.</p></div></div>",
+    "notes": "32:00–35:00. Основной обзор: √x, 1/x, |x|, x³. Если класс готов — показательная и логарифмическая. Подчеркните область определения. Остальные вкладки и полный справочник предназначены для изучения после урока, не для чтения всех свойств вслух за три минуты."
+  },
+  {
+    "id": "practice-linear",
+    "title": "Практика · первая степень",
+    "group": "Практика · 1/2",
+    "minutes": 5,
+    "src": "Авторские задания по с. 102–109",
+    "body": "<h2>Сначала реши.<br>Потом <span class=\"blue\">проверь себя.</span></h2><p class=\"lead\">Работайте в парах. Объясняйте выбор через наклон, нуль и знак.</p><div class=\"questions\" id=\"linear-questions\"></div><div class=\"controls\"><button data-action=\"quiz-reset\">Пройти заново</button><span class=\"score\" id=\"linear-score\">Решено: 0 из 3</span></div>",
+    "notes": "35:00–40:00. 2 минуты — самостоятельное решение, 2 — сравнение в парах, 1 — разбор. Не показывайте ответы до обсуждения. После неверного выбора появляется объяснение и можно ответить ещё раз. Счётчик показывает число найденных верных ответов, а не оценку первой попытки."
+  },
+  {
+    "id": "practice-quadratic",
+    "title": "Практика · вторая степень",
+    "group": "Практика · 2/2",
+    "minutes": 5,
+    "src": "Авторские задания по с. 113–118",
+    "body": "<h2>Теперь — <span class=\"accent\">полное исследование.</span></h2><div class=\"layout\"><div class=\"textcol\"><div class=\"formula\">g(x) = −x² + 4x + 5</div><p>Найди вершину, корни и реши g(x) ≥ 0.</p><div class=\"practice-fields\"><label class=\"field\">x вершины<input id=\"answer-h\" inputmode=\"decimal\" placeholder=\"Число\" autocomplete=\"off\"></label><label class=\"field\">y вершины<input id=\"answer-k\" inputmode=\"decimal\" placeholder=\"Число\" autocomplete=\"off\"></label><label class=\"field\">Меньший корень<input id=\"answer-r1\" inputmode=\"decimal\" placeholder=\"Число\" autocomplete=\"off\"></label><label class=\"field\">Больший корень<input id=\"answer-r2\" inputmode=\"decimal\" placeholder=\"Число\" autocomplete=\"off\"></label></div><label class=\"field\" style=\"margin-top:12px\">g(x) ≥ 0: промежуток<input id=\"answer-interval\" placeholder=\"Например: [0; 2]\" autocomplete=\"off\"></label><div class=\"controls\"><button class=\"primary\" data-action=\"check-quadratic\">Проверить</button><button  data-action=\"practice-solution\">Решение по шагам</button><button  data-action=\"practice-reset\">Сброс</button></div><div id=\"practice-feedback\" class=\"feedback\" aria-live=\"polite\"></div></div><div class=\"plot\"><div id=\"plot-practice\"></div><p class=\"plot-caption\">График и ответы откроются по кнопке «Решение по шагам» или после полностью верного ответа.</p></div></div>",
+    "notes": "40:00–45:00. 3 минуты — индивидуальное решение, 1 — проверка, 1 — вывод. Ответ: V(2;9), корни −1 и 5, g≥0 на [−1;5]. Дополнительный устный вопрос: где возрастает функция? На (−∞;2]. Exit ticket: «Что определяет знак a, а что — знак Δ?»"
+  }
+]
