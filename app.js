@@ -1,7 +1,7 @@
 /* Интерактивная версия урока для 9 класса. Работает автономно. */
 'use strict';
 const slides = [
- {chapter:'ВВЕДЕНИЕ',time:2,title:'Один аргумент.<br><em>Мир функций.</em>',desc:'<p>У каждой функции свой характер. Прямая, гипербола, корень и модуль — четыре графика, которые мы уже можем понимать.</p><p><b>Главная идея:</b> каждому допустимому значению <i>x</i> соответствует ровно одно значение <i>y</i>.</p>',formula:'y = f(x)',kind:'overview',hint:'Каждая функция на собственной системе координат',notes:'Покажите четыре графика на отдельных координатных плоскостях. Обратите внимание на различие их форм. Спросите класс: какое семейство проходит через начало координат? Цель — заинтересовать, а не объяснить все свойства заранее.'},
+ {chapter:'ВВЕДЕНИЕ',time:2,title:'Один аргумент.<br>Целый мир функций.',desc:'<p>У каждой функции свой характер. Прямая, гипербола, корень и модуль — четыре графика, которые мы уже можем понимать.</p><p><b>Главная идея:</b> каждому допустимому значению <i>x</i> соответствует ровно одно значение <i>y</i>.</p>',formula:'y = f(x)',kind:'overview',hint:'Каждая функция на собственной системе координат',notes:'Восстановлена карта урока из исходной версии презентации: шесть семейств функций. Парабола и кубическая функция показаны только на вводной карте (их изучение не входит в этот урок для 9 класса). Остальные слайды посвящены линейной функции, пропорциональностям, корню и модулю.'},
  {chapter:'ПОНЯТИЕ ФУНКЦИИ',time:3,title:'Каждому x —<br><em>ровно один y.</em>',desc:'<p>Функция — это правило, по которому находим значение <i>y</i> по значению <i>x</i>.</p><p>Меняй <b>x</b>: точка будет перемещаться по одной прямой. Это пара <b>(x; y)</b>.</p>',formula:'y = x + 1',kind:'mapping',controls:[{id:'x',label:'x',min:-4,max:4,step:1,value:2}],notes:'Задайте x=2 — получим y=3, точку (2;3). Попросите учащихся назвать y при x=-1 и x=0. Обратите внимание: одному x не могут одновременно соответствовать два разных значения y.'},
  {chapter:'СВОЙСТВА ФУНКЦИИ',time:2,title:'У графика есть<br><em>свой паспорт.</em>',desc:'<p>По графику можно прочитать: <b>область определения</b>, <b>множество значений</b>, <b>нули</b> и где функция <b>возрастает</b> или <b>убывает</b>.</p><p>Выдели нужный признак кнопкой.</p>',formula:'y = −x + 2',kind:'properties',buttons:[['zero','Нуль'],['sign','Знаки'],['slope','Убывание']],notes:'Нуль — x=2, поскольку y=0. При x<2 значения положительны, при x>2 отрицательны. На всём множестве действительных чисел эта функция убывает.'},
  {chapter:'ПРЯМАЯ ПРОПОРЦИОНАЛЬНОСТЬ',time:3,title:'Из начала координат —<br><em>по прямой.</em>',desc:'<p>Если <b>y = kx</b>, величины прямо пропорциональны. График всегда проходит через точку <b>(0; 0)</b>.</p><p>Изменяй <b>k</b> и наблюдай: меняется наклон, но начало координат остаётся на графике.</p>',formula:'y = kx',kind:'direct',controls:[{id:'k',label:'k',min:-3,max:3,step:0.5,value:1.5}],notes:'Сравните y=2x и y=-2x. Отрицательное k даёт убывающую прямую, положительное — возрастающую. При k=0 получается y=0 (ось x), но обычно прямую пропорциональность изучают при ненулевом k.'},
@@ -116,7 +116,7 @@ function renderOverviewAsFourPlots(){
 }
 
 function graphRender(){let p=planeConfig(),g='',base=drawGrid(p),overlay='',extra='';const k=current().kind;
- if(k==='overview')return renderOverviewAsFourPlots();
+ if(k==='overview')return '';
  if(k==='family'||k==='final'){let select=state.mode.active||'all';if(k==='final'&&select==='line')select='line';const show=(n)=>select==='all'||select===n; if(show('line')){g+=layerLine(x=>x,C.blue,p,{width:5.2,opacity:select==='all'?.95:1});g+=curveLabel(3.1,3.55,'y = x',C.blue,p)}if(show('inverse')){g+=layerLine(x=>4/x,C.orange,p,{split:true,width:5.3});g+=curveLabel(2.8,1.95,'y = 4/x',C.orange,p)}if(show('sqrt')){g+=layerLine(x=>x<0?NaN:Math.sqrt(x),C.teal,p,{min:0,width:6});g+=curveLabel(4,2.5,'y = √x',C.teal,p)}if(show('abs')){g+=layerLine(x=>Math.abs(x),C.purple,p,{width:4.5,opacity:select==='all'?.6:1});g+=curveLabel(-3.3,3.85,'y = |x|',C.purple,p)}}
  if(k==='mapping'){const x=val('x',2),y=x+1;g+=layerLine(v=>v+1,C.blue,p);overlay+=point(x,y,C.orange,p,`(${fmt(x)}; ${fmt(y)})`,true)}
  if(k==='properties'){g+=layerLine(x=>-x+2,C.blue,p);const m=state.mode.active||'zero';if(m==='zero')overlay+=point(2,0,C.orange,p,'нуль: x = 2',true);else if(m==='sign'){extra+=`<rect x="${xx(p.xmin,p)}" y="${p.T}" width="${xx(2,p)-xx(p.xmin,p)}" height="${p.B-p.T}" fill="${C.teal}" opacity=".045"/><rect x="${xx(2,p)}" y="${p.T}" width="${xx(p.xmax,p)-xx(2,p)}" height="${p.B-p.T}" fill="${C.orange}" opacity=".05"/>`;overlay+=curveLabel(-2,3.7,'y > 0',C.teal,p)+curveLabel(3,-3.2,'y < 0',C.orange,p)}else overlay+=curveLabel(-2,3.7,'убывает ↘',C.orange,p)}
@@ -135,7 +135,7 @@ function controlMarkup(c){let a=val(c.id,c.value);return `<label class="sliderro
 function quizMarkup(){return `<div class="buttons">${[['a','y = x'],['b','y = 4 / x'],['c','y = √x'],['d','y = |x|']].map(([id,text])=>`<button class="qbtn" data-quiz="${id}">${text}</button>`).join('')}</div>`}
 function controlsMarkup(s){if(s.kind==='quiz')return quizMarkup();if(s.controls)return s.controls.map(controlMarkup).join('');if(s.buttons)return `<div class="buttons">${s.buttons.map(([id,label])=>`<button data-mode="${id}" class="${(state.mode.active||s.buttons[0][0])===id?'active':''}">${label}</button>`).join('')}</div>`;return ''}
 function insightText(){const s=current(),k=s.kind,v=state.values,m=state.mode.active;switch(k){case'overview':return '<strong>Наблюдение:</strong> форма графика подсказывает, какая функция перед нами.';case'mapping':return `<strong>Ответ:</strong> x = ${fmt(v.x)}, y = ${fmt(v.x+1)}.`;case'properties':return m==='sign'?'Слева от x = 2 график выше оси x; справа — ниже.':m==='slope'?'При увеличении x значение y уменьшается.':'<strong>Нуль:</strong> x = 2. Здесь график пересекает ось x.';case'direct':return v.k>0?'<strong>k > 0:</strong> прямая возрастает.':v.k<0?'<strong>k < 0:</strong> прямая убывает.':'<strong>k = 0:</strong> это постоянная нулевая функция.';case'linear':return `<strong>Проверь:</strong> при x = 0 имеем y = ${fmt(v.b)}.`;case'read-linear':return v.k===0?'Прямая горизонтальна: y = 2; нулей нет.':`<strong>Нуль:</strong> x = ${fmt(-2/v.k)}. Функция ${v.k>0?'возрастает':'убывает'}.`;case'intersection':return `<strong>Решение:</strong> x = ${fmt((v.c+1)/2)}.`;case'inverse':return `<strong>Важно:</strong> x ≠ 0. Произведение x·y = ${fmt(v.k||1)}.`;case'inverse-sign':return m==='neg'?'Ветви находятся во II и IV четвертях.':'Ветви находятся в I и III четвертях.';case'sqrt':return `<strong>Ответ:</strong> √${fmt(v.x)} = ${fmt(Math.sqrt(v.x))}.`;case'sqrt-compare':return 'Оба графика проходят через точки (0; 0) и (1; 1).';case'abs':return `<strong>Ответ:</strong> |${fmt(v.x)}| = ${fmt(Math.abs(v.x))}.`;case'family':return 'У каждого семейства — характерный силуэт.';case'quiz':return state.quiz===null?'Выбери одну из четырёх формул.':state.quiz==='b'?'<strong>Верно!</strong> Две ветви в I и III четвертях — обратная пропорциональность.':'<strong>Попробуй ещё.</strong> На рисунке две отдельные ветви, которые не проходят через начало координат.';case'final':return ({line:'Прямая: y = x.',inverse:'Гипербола: y = 4/x.',sqrt:'Корень: y = √x.',abs:'Модуль: y = |x|.'})[m]||'Узнай форму по графику.'}}
-function render(){const s=current();$('kicker').textContent=`${String(state.i+1).padStart(2,'0')} / ${s.chapter}`;$('headline').innerHTML=s.title;$('description').innerHTML=s.desc;$('formula').innerHTML=s.formula;$('controls').innerHTML=controlsMarkup(s);$('insight').innerHTML=insightText();$('sectionTag').textContent=s.chapter;$('timeTag').textContent=`${String(s.time).padStart(2,'0')} МИН`;$('graphHint').textContent=s.hint||'Меняй параметры — график обновится';$('graphHint').style.display=s.kind==='overview'?'none':'';$('counter').textContent=`${String(state.i+1).padStart(2,'0')} / 15`;$('graph').setAttribute('viewBox',`0 0 ${ratio().W} ${ratio().H}`);$('graph').innerHTML=graphRender();$('prev').disabled=state.i===0;$('next').disabled=state.i===slides.length-1;$('progress').innerHTML=slides.map((t,j)=>`<button class="${j===state.i?'current':j<state.i?'passed':''}" title="Слайд ${j+1}" data-slide="${j}"></button>`).join('');document.title=`${state.i+1}/15 · Функции · 9 класс`}
+function render(){const s=current();document.body.classList.toggle('original-atlas-active',state.i===0);$('kicker').textContent=`${String(state.i+1).padStart(2,'0')} / ${s.chapter}`;$('headline').innerHTML=s.title;$('description').innerHTML=s.desc;$('formula').innerHTML=s.formula;$('controls').innerHTML=controlsMarkup(s);$('insight').innerHTML=insightText();$('sectionTag').textContent=s.chapter;$('timeTag').textContent=`${String(s.time).padStart(2,'0')} МИН`;$('graphHint').textContent=s.hint||'Меняй параметры — график обновится';$('graphHint').style.display=s.kind==='overview'?'none':'';$('counter').textContent=`${String(state.i+1).padStart(2,'0')} / 15`;$('graph').setAttribute('viewBox',`0 0 ${ratio().W} ${ratio().H}`);$('graph').innerHTML=graphRender();$('prev').disabled=state.i===0;$('next').disabled=state.i===slides.length-1;$('progress').innerHTML=slides.map((t,j)=>`<button class="${j===state.i?'current':j<state.i?'passed':''}" title="Слайд ${j+1}" data-slide="${j}"></button>`).join('');document.title=`${state.i+1}/15 · Функции · 9 класс`}
 function redraw(){for(const [k,v] of Object.entries(state.values)){const el=$('output-'+k);if(el)el.textContent=fmt(v)}$('graph').innerHTML=graphRender();$('insight').innerHTML=insightText()}
 function go(i){if(i<0||i>=slides.length)return;state.i=i;reset();render();history.replaceState(null,'','#slide-'+String(i+1).padStart(2,'0'))}
 function openNotes(){const s=current();$('notesNum').textContent=String(state.i+1).padStart(2,'0')+'/15';$('notesTitle').textContent=s.title.replace(/<[^>]*>/g,' ');$('notesText').innerHTML=`<p>${s.notes}</p>`;$('notesDlg').showModal()}
@@ -147,3 +147,61 @@ document.addEventListener('input',e=>{const key=e.target.dataset.param;if(!key)r
 window.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;if($('notesDlg').open||$('menuDlg').open)return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(state.i+1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(state.i-1)}else if(e.key==='Home'){go(0)}else if(e.key==='End'){go(slides.length-1)}else if(e.key.toLowerCase()==='n'){openNotes()}else if(e.key.toLowerCase()==='t'){togglePanel()}else if(e.key.toLowerCase()==='f'){toggleFull()}});
 window.addEventListener('resize',render);
 const initial=location.hash.match(/slide-(\d+)/i);if(initial)state.i=Math.min(14,Math.max(0,+initial[1]-1));reset();render();
+
+// Original first-slide atlas (restored from initial commit 3006d7b, 2026-10-17).
+// Preserves the original first-commit gallery composition with five studied families.
+const ORIGINAL_ATLAS_COLORS={blue:'#205bd5',orange:'#b84220',teal:'#087f75',ink:'#172638',purple:'#7750b1'};
+const ORIGINAL_ATLAS_ITEMS=[
+ {key:'direct',label:'Прямая пропорциональность',formula:'y = x',color:ORIGINAL_ATLAS_COLORS.blue,fn:x=>x,target:3},
+ {key:'linear',label:'Линейная функция',formula:'y = x + 1',color:ORIGINAL_ATLAS_COLORS.orange,fn:x=>x+1,target:4},
+ {key:'inverse',label:'Обратная пропорциональность',formula:'y = 2/x',color:ORIGINAL_ATLAS_COLORS.purple,fn:x=>Math.abs(x)>.02?2/x:NaN,target:7},
+ {key:'sqrt',label:'Квадратный корень',formula:'y = √x',color:ORIGINAL_ATLAS_COLORS.teal,fn:x=>x>=0?Math.sqrt(x):NaN,target:9},
+ {key:'abs',label:'Модуль',formula:'y = |x|',color:ORIGINAL_ATLAS_COLORS.blue,fn:x=>Math.abs(x),target:11}
+];
+function originalAtlasSVG(item){
+ const W=700,H=480,xmin=-3,xmax=3,ymin=-2,ymax=4,L=52,R=24,T=24,B=42;
+ const w=W-L-R,h=H-T-B,X=x=>L+(x-xmin)*w/(xmax-xmin),Y=y=>T+(ymax-y)*h/(ymax-ymin),zeroX=X(0),zeroY=Y(0);
+ const clip='original-atlas-clip-'+item.key;
+ let s=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${item.formula}"><title>${item.formula}</title><defs><clipPath id="${clip}"><rect x="${L}" y="${T}" width="${w}" height="${h}"/></clipPath></defs>`;
+ for(let x=xmin;x<=xmax;x++)s+=`<line x1="${X(x)}" y1="${T}" x2="${X(x)}" y2="${T+h}" stroke="#dfe3e6" stroke-width="1"/>`;
+ for(let y=ymin;y<=ymax;y++)s+=`<line x1="${L}" y1="${Y(y)}" x2="${L+w}" y2="${Y(y)}" stroke="#dfe3e6" stroke-width="1"/>`;
+ s+=`<g fill="${ORIGINAL_ATLAS_COLORS.ink}" font-family="Arial,sans-serif" font-size="17"><line x1="${L}" y1="${zeroY}" x2="${W-12}" y2="${zeroY}" stroke="${ORIGINAL_ATLAS_COLORS.ink}" stroke-width="1.5"/><path d="M${W-12},${zeroY}l-8,-4v8Z"/><line x1="${zeroX}" y1="${T+h}" x2="${zeroX}" y2="12" stroke="${ORIGINAL_ATLAS_COLORS.ink}" stroke-width="1.5"/><path d="M${zeroX},12l-4,8h8Z"/><text x="${W-20}" y="${zeroY-12}" font-style="italic">x</text><text x="${zeroX+13}" y="20" font-style="italic">y</text>`;
+ for(let x=xmin;x<=xmax;x++)if(x!==0)s+=`<text x="${X(x)}" y="${zeroY+23}" text-anchor="middle">${x}</text>`;
+ for(let y=ymin;y<=ymax;y++)if(y!==0)s+=`<text x="${zeroX-12}" y="${Y(y)+6}" text-anchor="end">${y}</text>`;
+ s+=`<text x="${zeroX-13}" y="${zeroY+23}" text-anchor="end">0</text></g>`;
+ let d='',last=null;
+ for(let i=0;i<=1000;i++){
+  const x=xmin+(xmax-xmin)*i/1000,y=item.fn(x);
+  if(!Number.isFinite(y)||y<ymin-20||y>ymax+20||(last&&Math.abs(y-last.y)>15)){last=null;continue}
+  d+=`${last?'L':'M'}${X(x).toFixed(2)},${Y(y).toFixed(2)}`;last={x,y};
+ }
+ s+=`<g clip-path="url(#${clip})"><path d="${d}" fill="none" stroke="${item.color}" stroke-width="4" stroke-linecap="round"/></g></svg>`;
+ return s;
+}
+function buildOriginalAtlas(){
+ const root=$('original-atlas-grid');
+ root.innerHTML=ORIGINAL_ATLAS_ITEMS.map(item=>
+  `<button type="button" class="original-atlas-item" data-original-family="${item.key}" title="${item.label}: ${item.formula}">${originalAtlasSVG(item)}<span class="original-family">${item.label}<span class="original-family-formula" style="color:${item.color}">${item.formula}</span></span></button>`).join('');
+ const dots=$('original-atlas-dots');
+ dots.innerHTML=slides.map((s,i)=>`<button type="button" data-original-slide="${i}" aria-label="Слайд ${i+1}" class="${i===0?'chosen':''} ${i>=3&&i<=5?'linear':i>=6&&i<=12?'quad':''}"></button>`).join('');
+}
+function originalAtlasSource(){
+ $('notesNum').textContent='01/15';$('notesTitle').textContent='Карта урока · 9 класс';
+ $('notesText').innerHTML='<p>Первый слайд использует композицию из самого первого коммита: большой заголовок слева, кликабельные мини-графики справа. Здесь оставлены только пять функций, знакомые учащимся 9 класса.</p><p>Нажмите на график — презентация перейдёт к соответствующей теме.</p>';
+ $('notesDlg').showModal();
+}
+document.addEventListener('click',e=>{
+ const family=e.target.closest('[data-original-family]');
+ if(family){
+  const item=ORIGINAL_ATLAS_ITEMS.find(v=>v.key===family.dataset.originalFamily);
+  if(item) go(item.target);
+ }
+ const dot=e.target.closest('[data-original-slide]');if(dot)go(Number(dot.dataset.originalSlide));
+ if(e.target.closest('[data-original-go-next]'))go(1);
+ if(e.target.closest('[data-original-toc]'))openMenu();
+ if(e.target.closest('[data-original-notes]'))originalAtlasSource();
+ if(e.target.closest('[data-original-full]'))toggleFull();
+});
+buildOriginalAtlas();
+// If the document opened at the first slide, refresh the overlay state once mounted.
+render();
